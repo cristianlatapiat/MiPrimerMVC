@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="cryppayqa" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=cryppayqa;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="cryppayqaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tab_Applications_Details" Member="Tab_Applications_Details">
+    <Type Name="Tab_Applications_Detail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdAplication" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Server" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PathAssemblies" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Tab_Application_Tab_Applications_Detail" Member="Tab_Application" ThisKey="IdAplication" OtherKey="Id" Type="Tab_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_Applications" Member="Tab_Applications">
+    <Type Name="Tab_Application">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaActualizacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Tab_Application_Tab_Applications_Detail" Member="Tab_Applications_Details" ThisKey="Id" OtherKey="IdAplication" Type="Tab_Applications_Detail" />
+    </Type>
+  </Table>
+</Database>
